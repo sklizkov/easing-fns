@@ -1,0 +1,2 @@
+# easingsjs
+Easing Functions
