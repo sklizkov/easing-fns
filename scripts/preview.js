@@ -1,0 +1,64 @@
+const
+  fs = require('fs'),
+  { optimize } = require('svgo'),
+  easings = require('../dist/easing-fns.cjs.js')
+
+
+const
+  width = 140 * 6 + 10 * 6,
+  height = 160 * 6 + 10 * 6
+
+const content = `<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 ${ width } ${ height }" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <linearGradient id="gradient">
+      <stop offset="0%" stop-color="#7b67ff"></stop>
+      <stop offset="100%" stop-color="#ee8afe" stop-opacity="1"></stop>
+    </linearGradient>
+  </defs>
+  ${ Object.keys(easings).filter(n => n !== 'linear').concat(['linear']).map((name, i) => {
+    const
+      x = 150 * i - (Math.floor(i / 6) * width),
+      y = 170 * Math.floor(i / 6)
+
+    return `<g>
+      <!--<rect x="${ x }" y="${ y }" width="140" height="160" rx="15" fill="#f9f9f9" stroke="#f1f1f1" />-->
+      <text x="${ x + 70 }" y="${ y + 17 }" text-anchor="middle" fill="#7b67ff" font-size="1em" font-weight="bold" font-family="monospace">${ name }</text>
+
+      <rect x="${ x + 10 }" y="${ y + 30 }" width="120" height="120" rx="10" fill="rgba(0, 0, 0, .03)" stroke="rgba(0, 0, 0, .08)" />
+      <path fill="transparent" stroke="url(#gradient)" stroke-width="5" d="${ createEasing(easings[name], 20 + x, 40 + y) }" stroke-linecap="round"></path>
+    </g>`
+  }).join('') }
+</svg>`
+
+fs.writeFile('preview.svg', optimize(content).data, err => {
+  if (err) return console.log(err)
+})
+
+
+function createEasing(easing, offsetX = 0, offsetY = 0) {
+  const
+    scaleDown = .01,
+    scaleUp = 100,
+    points = [],
+    from = 0,
+    to = scaleUp
+
+  for (let i = from; i <= to; i++) {
+    const
+      x = round(Math.abs(i)) + offsetX,
+      y = round(scaleUp * (1 - easing(Math.abs(i) * scaleDown))) + offsetY
+
+    if (i === from) {
+      points.push(`M${x} ${y} L`)
+    } else {
+      points.push(` ${x} ${y}`)
+    }
+  }
+
+  return points.join('')
+}
+
+function round (n) {
+  return Number(n.toFixed(1))
+}

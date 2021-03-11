@@ -16,5 +16,5 @@
     "no-multi-spaces": "error",
     "no-console": "error"
   },
-  "ignorePatterns": ["dist/**/*.*", "plop-templates/**/*.*"]
+  "ignorePatterns": ["dist/**/*.*", "plop-templates/**/*.*", "scripts/**/*.*"]
 }
