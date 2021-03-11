@@ -26,7 +26,7 @@ const content = `<?xml version="1.0" encoding="UTF-8"?>
       <text x="${ x + 70 }" y="${ y + 17 }" text-anchor="middle" fill="#7b67ff" font-size="1em" font-weight="bold" font-family="monospace">${ name }</text>
 
       <rect x="${ x + 10 }" y="${ y + 30 }" width="120" height="120" rx="10" fill="rgba(0, 0, 0, .03)" stroke="rgba(0, 0, 0, .08)" />
-      <path fill="transparent" stroke="url(#gradient)" stroke-width="5" d="${ createEasing(easings[name], 20 + x, 40 + y) }" stroke-linecap="round"></path>
+      <path fill="transparent" stroke="url(#gradient)" stroke-width="4" d="${ createEasing(easings[name], 20 + x, 40 + y) }" stroke-linecap="round"></path>
     </g>`
   }).join('') }
 </svg>`
