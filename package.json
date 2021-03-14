@@ -23,12 +23,22 @@
     "url": "git+https://github.com/sklizkov/easing-fns.git"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "keywords": [
+    "easing",
     "easings",
-    "animation"
+    "ease",
+    "eases",
+    "animation",
+    "animations",
+    "animation-timing-function",
+    "timing-function",
+    "functions",
+    "fns",
+    "transition",
+    "transition-timing-function",
+    "tween"
   ],
   "author": "sklizkov",
   "license": "MIT",
