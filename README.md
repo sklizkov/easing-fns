@@ -60,6 +60,6 @@ function animate(easing, draw, duration) {
 
 ![preview](https://raw.githubusercontent.com/sklizkov/easing-fns/main/preview.svg)
 
-## License
+---
 
-MIT, see [LICENSE](http://github.com/sklizkov/easing-fns/blob/master/LICENSE) for details.
+Inspired by [mattdesl/eases](https://github.com/mattdesl/eases)  
