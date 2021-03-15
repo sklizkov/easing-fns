@@ -2,8 +2,8 @@
   "name": "easing-fns",
   "version": "0.3.1",
   "description": "Easing Functions",
-  "main": "dist/easing-fns.cjs.js",
-  "unpkg": "dist/easing-fns.js",
+  "type": "module",
+  "main": "dist/easing-fns.js",
   "module": "dist/easing-fns.module.js",
   "scripts": {
     "new": "plop",

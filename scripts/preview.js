@@ -1,7 +1,6 @@
-const
-  fs           = require('fs'),
-  { optimize } = require('svgo'),
-  easings      = require('../dist/easing-fns.cjs.js')
+import fs from 'fs'
+import { optimize } from 'svgo'
+import * as easings from '../dist/easing-fns.module.js'
 
 
 const
